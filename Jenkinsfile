@@ -10,13 +10,7 @@ pipeline {
         git 'https://github.com/rafaelquintella/test'
       }
     }
-        
-    stage('Install dependencies') {
-      steps {
-        sh 'npm install'
-      }
-    }
-     
+             
     stage('Test') {
       steps {
          sh 'echo oi'
