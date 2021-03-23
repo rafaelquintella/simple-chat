@@ -5,11 +5,11 @@ pipeline {
     
   stages {
     //Clone do repositório                 
-    stage('Clone') {
-      steps {
-         sh 'ssh $SSH_USER@$SSH_HOST	git clone https://github.com/rafaelquintella/simple-chat || true'
-      }
-    }  
+    // stage('Clone') {
+    //   steps {
+    //      sh 'ssh $SSH_USER@$SSH_HOST	git clone https://github.com/rafaelquintella/simple-chat || true'
+    //   }
+    // }  
     //Atualiza o código da aplicação
     stage('Update') {
       steps {
