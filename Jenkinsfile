@@ -7,7 +7,7 @@ pipeline {
                      
     stage('Test') {
       steps {
-         sh 'echo oi'
+         sh 'ssh $SSH_USER@13.57.48.165	'git clone https://github.com/rafaelquintella/simple-chat || true'
       }
     }      
   }
