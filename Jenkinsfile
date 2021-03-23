@@ -19,14 +19,14 @@ pipeline {
     //Build a imagem
     stage('Build') {
       steps {
-         sh 'ssh $SSH_USER@$SSH_HOST	docker build -t simple-chat simple-chat/'
+         sh 'ssh $SSH_USER@$SSH_HOST	docker build -t simple-chat:latest simple-chat/'
       }
     } 
     //Deploy
     stage('Deploy') {
       steps {
          sh 'ssh $SSH_USER@$SSH_HOST	docker container rm -f app-node || true'
-         sh 'ssh $SSH_USER@$SSH_HOST	docker container run -d -p 8000:3000 --name app-node simple-chat'
+         sh 'ssh $SSH_USER@$SSH_HOST	docker container run -d -p 8000:3000 --name app-node simple-chat:latest'
       }
     } 
 
