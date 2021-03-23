@@ -4,18 +4,17 @@ pipeline {
   //tools {nodejs "node"}
     
   stages {
-    //Clone do repositório                 
-    // stage('Clone') {
-    //   steps {
-    //      sh 'ssh $SSH_USER@$SSH_HOST	git clone https://github.com/rafaelquintella/simple-chat || true'
-    //   }
-    // }  
     //Atualiza o código da aplicação
     stage('Update') {
       steps {
          sh 'ssh $SSH_USER@$SSH_HOST    cd simple-chat && git pull origin main --force'
       }
     }   
+    stage('Configure') {
+      steps {
+         sh 'ssh $SSH_USER@$SSH_HOST    sed -i "s/URL_DATABASE/teste/g" server.js'
+      }
+    }  
     //Build a imagem
     stage('Build') {
       steps {
