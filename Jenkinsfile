@@ -13,7 +13,6 @@ pipeline {
     //Atualiza o código da aplicação
     stage('Update') {
       steps {
-         dir('simple-chat')
          sh 'ssh $SSH_USER@$SSH_HOST    git pull origin main'
       }
     }   
