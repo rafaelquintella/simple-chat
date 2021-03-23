@@ -6,6 +6,7 @@ pipeline {
     stage('Cloning Git') {
       steps {
         sh 'ssh $SSH_USER@SSH_HOST	git clone https://github.com/rafaelquintella/simple-chat || true'   
+        }
     }
         
     // stage('Install dependencies') {
@@ -18,6 +19,6 @@ pipeline {
     //   steps {
     //      sh 'echo oi'
     //   }
-    // }      
+     }      
   }
 }
