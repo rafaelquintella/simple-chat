@@ -12,7 +12,7 @@
 <div class="container">
     <br>
     <div class="jumbotron">
-        <h1 class="display-4">Send Message - Test - 444</h1>
+        <h1 class="display-4">Send Message - Test - 999</h1>
         <br>
         <input id = "name" class="form-control" placeholder="Name">
         <br>
@@ -41,13 +41,13 @@
     }
 
     function getMessages(){
-      $.get('http://13.57.48.165:3000/messages', (data) => {
+      $.get('http://13.57.48.165:8000/messages', (data) => {
         data.forEach(addMessages);
       })
     }
 
     function sendMessage(message){
-      $.post('http://13.57.48.165:3000/messages', message)
+      $.post('http://13.57.48.165:8000/messages', message)
     }
 </script>
 </body>
