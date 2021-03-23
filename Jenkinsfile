@@ -1,24 +1,26 @@
 pipeline {
   agent any
-
+     
+  tools {nodejs "node"}
+    
   stages {
         
     stage('Cloning Git') {
       steps {
-        sh 'ssh $SSH_USER@SSH_HOST	git clone https://github.com/rafaelquintella/simple-chat || true'   
-        }
+        git 'https://github.com/rafaelquintella/test'
+      }
     }
         
-    // stage('Install dependencies') {
-    //   steps {
-    //     sh 'npm install'
-    //   }
-    // }
+    stage('Install dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
      
-    // stage('Test') {
-    //   steps {
-    //      sh 'echo oi'
-    //   }
-     }      
+    stage('Test') {
+      steps {
+         sh 'echo oi'
+      }
+    }      
   }
 }
