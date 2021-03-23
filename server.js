@@ -14,7 +14,7 @@ var Message = mongoose.model('Message',{
   message : String
 })
 
-var dbUrl = 'URL_DATABASE'
+var dbUrl = URL_DATABASE
 
 app.get('/messages', (req, res) => {
   Message.find({},(err, messages)=> {
