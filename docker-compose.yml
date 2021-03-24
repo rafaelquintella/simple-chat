@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  app-node:
+    container_name: app-node
+    image: simple-chat
+    env_file: .env
+    environment:
+      - DATABASE_USER=$DATABASE_USER
+      - DATABASE_PASSWORD=$DATABASE_PASSWORD
+      - DATABASE_HOST=$DATABASE_HOST
+    ports: 
+      - "8000:3000"
