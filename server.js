@@ -4,6 +4,9 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
+const { ConsoleReporter } = require('jasmine');
+var dotenv = require('dotenv').config()
+var { DATABASE_USER, DATABASE_PASSWORD, DATABASE_HOST } = process.env
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
@@ -14,13 +17,15 @@ var Message = mongoose.model('Message',{
   message : String
 })
 
-var dbUrl = 'mongodb+srv://test-ezops:4y6VwWMToa9k21X0@cluster0.8o2gs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+var dbUrl = `mongodb+srv://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST}?retryWrites=true&w=majority`
 
 app.get('/messages', (req, res) => {
   Message.find({},(err, messages)=> {
     res.send(messages);
   })
 })
+
+console.log(process.env.DB);
 
 
 app.get('/messages/:user', (req, res) => {
