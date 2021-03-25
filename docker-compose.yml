@@ -1,11 +1,10 @@
 version: "3"
 
 services:
-  node-build:
+  app-node:
     build:
       context: .
       dockerfile: Dockerfile
-  app-node:
     container_name: app-node
     image: simple-chat
     env_file: .env
