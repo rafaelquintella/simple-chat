@@ -1,6 +1,10 @@
 version: "3"
 
 services:
+  node-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
   app-node:
     container_name: app-node
     image: simple-chat
